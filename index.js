@@ -3,8 +3,11 @@ import { v4 as uuid } from "uuid";
 
 export class RealtimeDatabaseReferance {
     url = 'http://localhost:8000/api/realtime/';
-    constructor(ref) {
+    constructor(ref, url) {
         this.ref = ref;
+        if (url) {
+            this.url = url;
+        }
     }
     sse = {}
     session_id = null;
@@ -54,14 +57,18 @@ export class RealtimeDatabaseReferance {
 }
 export class RealtimeDatabaseClient {
     referances = [];
-    constructor() {
+    url = 'http://localhost:8000/api/realtime/';
+    constructor(url) {
+        if (url) {
+            this.url = url;
+        }
     }
 
     ref(ref) {
         if (this.referances.find(r => r.ref == ref)) {
             return this.referances.find(r => r.ref == ref);
         }
-        const r = new RealtimeDatabaseReferance(ref);
+        const r = new RealtimeDatabaseReferance(ref, this.url);
         this.referances.push(r);
         return r;
     }
