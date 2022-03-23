@@ -1,7 +1,5 @@
 # LiteBase JS SDK
 
-### installation
-    npm install
 
 # RealtimeDataBase
 Realtime data comminication on client and server
@@ -9,6 +7,9 @@ Realtime data comminication on client and server
 ### React (WEB, MOBIL)
 
 ```JavaScript
+
+import { RealtimeDatabaseClient } from 'litebase-js-sdk'
+
 const client = new  RealtimeDatabaseClient("<server-url>")
     useEffect(() => {
 
