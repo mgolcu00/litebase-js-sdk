@@ -17,7 +17,6 @@ export class RealtimeDatabaseReferance {
         this.sse = sse;
         this.sse.onmessage = (event) => {
             const data = JSON.parse(event.data);
-            console.log('[INFO](event) : ', event);
             let r1 = this.ref
             if (r1 == '*') {
                 callback(null, data);
@@ -35,10 +34,8 @@ export class RealtimeDatabaseReferance {
             callback(error, null);
         }
         this.sse.addEventListener('open', (event) => {
-            console.log('OPEN');
         });
         this.sse.addEventListener('close', (event) => {
-            console.log('CLOSE');
         });
     }
 
@@ -74,7 +71,6 @@ export class RealtimeDatabaseClient {
     }
     close() {
         this.referances.forEach(ref => {
-            console.log('close', ref);
             ref.close();
         })
     }
