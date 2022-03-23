@@ -1,6 +1,6 @@
 {
   "name": "litebase-js-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "litebase platform js client sdk",
   "main": "index.js",
   "scripts": {
